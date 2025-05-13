@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { immer } from "zustand/middleware/immer";
 
 // 스토어의 상태와 액션에 대한 타입을 정의합니다.
 interface CounterState {
@@ -15,3 +16,24 @@ const useCounterStore = create<CounterState>((set) => ({
 }));
 
 export default useCounterStore;
+
+interface MultiflyState {
+  bees: number;
+  multifly: (by: number) => void;
+}
+
+/* immer: 내장 미들웨어
+immer를 이용하면 복잡한 객체의 업데이트를 간단히 처리할 수 있습니다. */
+
+const useMultiflyStore = create<MultiflyState>()(
+  immer((set) => ({
+    bees: 0,
+    multifly: (
+      by: number // 2. 'by' 파라미터에 타입 명시
+    ) =>
+      set((state) => {
+        // 이제 'state'는 BeeState 타입으로 올바르게 추론됩니다.
+        state.bees *= by;
+      }),
+  }))
+);
