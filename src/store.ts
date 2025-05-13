@@ -25,7 +25,7 @@ immer를 이용하면 복잡한 객체의 업데이트를 간단히 처리할 �
 
 export const useMultiflyStore = create<MultiflyState>()(
   immer((set) => ({
-    value: 0,
+    value: 1,
     multifly: (
       by: number // 2. 'by' 파라미터에 타입 명시
     ) =>
