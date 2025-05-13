@@ -9,31 +9,29 @@ interface CounterState {
 }
 
 // create 함수를 사용하여 스토어를 생성합니다.
-const useCounterStore = create<CounterState>((set) => ({
+export const useCounterStore = create<CounterState>((set) => ({
   count: 0, // 초기상태
   increment: () => set((state) => ({ count: state.count + 1 })),
   decrement: () => set((state) => ({ count: state.count - 1 })),
 }));
 
-export default useCounterStore;
-
 interface MultiflyState {
-  bees: number;
+  value: number;
   multifly: (by: number) => void;
 }
 
 /* immer: 내장 미들웨어
 immer를 이용하면 복잡한 객체의 업데이트를 간단히 처리할 수 있습니다. */
 
-const useMultiflyStore = create<MultiflyState>()(
+export const useMultiflyStore = create<MultiflyState>()(
   immer((set) => ({
-    bees: 0,
+    value: 0,
     multifly: (
       by: number // 2. 'by' 파라미터에 타입 명시
     ) =>
       set((state) => {
         // 이제 'state'는 BeeState 타입으로 올바르게 추론됩니다.
-        state.bees *= by;
+        state.value *= by;
       }),
   }))
 );

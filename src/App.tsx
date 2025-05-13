@@ -1,5 +1,5 @@
 import "./App.css";
-import useCounterStore from "./store";
+import { useCounterStore } from "./store";
 
 function App() {
   const { count, increment, decrement } = useCounterStore();
