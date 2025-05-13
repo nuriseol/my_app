@@ -4,3 +4,24 @@
   padding: 2rem;
   text-align: center;
 }
+
+/* App.css 또는 index.css */
+body.light {
+  background-color: #ffffff;
+  color: #282c34;
+}
+
+body.dark {
+  background-color: #282c34;
+  color: #ffffff;
+}
+
+body.dark .App button {
+  background-color: #555;
+  color: white;
+  border-color: #777;
+}
+
+body.dark .App section {
+  border-color: #444;
+}
