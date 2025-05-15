@@ -16,6 +16,9 @@ function App() {
   // 공통 버튼 스타일
   const buttonBaseClasses = "px-2 rounded";
 
+  // 공통 제목 스타일
+  const h2BaseClasses = "font-bold mb-2";
+
   useEffect(() => {
     const getPosts = async () => {
       const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
@@ -31,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <section>
-        <h2>Post List</h2>
+        <h2 className={h2BaseClasses}>Post List</h2>
         <ul className="text-left">
           {posts.length > 0 ? (
             posts.map((post: any) => {
@@ -46,7 +49,7 @@ function App() {
               );
             })
           ) : (
-            <h2>Loading...</h2>
+            <p>Loading...</p>
           )}
         </ul>
       </section>
@@ -55,7 +58,7 @@ function App() {
 
       {/* 카운터 섹션 */}
       <section>
-        <h2>Counter Store</h2>
+        <h2 className={h2BaseClasses}>Counter Store</h2>
         <p>{count}</p>
         <button
           onClick={decrement}
@@ -75,7 +78,7 @@ function App() {
 
       {/* 곱셈기 섹션 */}
       <section>
-        <h2>Multifly Store</h2>
+        <h2 className={h2BaseClasses}>Multifly Store</h2>
         <p>Current Value: {value}</p>
         <button
           onClick={() => multifly(2)}
@@ -110,7 +113,7 @@ function App() {
 
       {/* 테마 설정 섹션 */}
       <section>
-        <h2>Theme Settings (Persisted)</h2>
+        <h2 className={h2BaseClasses}>Theme Settings (Persisted)</h2>
         <p>Current Mode: {mode}</p>
         <button
           onClick={toggleMode}
