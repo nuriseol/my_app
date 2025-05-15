@@ -4,7 +4,7 @@ import axios from "axios";
  * @name 공통API 호출 유틸
  */
 const api = axios.create({
-  baseURL: process.env.REACT_APP_BASE_API,
+  baseURL: process.env.REACT_APP_API,
 });
 
 // 요청 인터셉터
@@ -28,3 +28,5 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+export default api;

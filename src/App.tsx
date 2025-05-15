@@ -2,6 +2,7 @@ import axios from "axios";
 import "./App.css";
 import { useCounterStore, useMultiflyStore, useThemeStore } from "./store";
 import { useEffect, useState } from "react";
+import api from "./utils/api";
 
 function App() {
   const { count, increment, decrement } = useCounterStore();
@@ -20,15 +21,16 @@ function App() {
   const h2BaseClasses = "font-bold mb-2";
 
   useEffect(() => {
-    const getPosts = async () => {
-      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-
-      setPosts(res.data.slice(0, 3));
+    const getData = async () => {
+      try {
+        const res = await api.get("/todos");
+        setPosts(res.data.slice(0, 5));
+      } catch (error) {
+        console.error("게시글을 불러오는 데 실패했습니다:", error);
+      }
     };
 
-    setTimeout(() => {
-      getPosts();
-    }, 2000);
+    getData();
   }, []);
 
   return (
@@ -37,14 +39,20 @@ function App() {
         <h2 className={h2BaseClasses}>Post List</h2>
         <ul className="text-left">
           {posts.length > 0 ? (
-            posts.map((post: any) => {
+            posts.map((data: any) => {
               return (
-                <li className="mb-3">
+                <li className="mb-2">
                   <p className="mb-0.5">
-                    <span className="font-bold">No. {post.id} </span>
-                    <span>{post.title}</span>
+                    <span
+                      className={`inline-block w-[24px] text-center rounded text-white ${
+                        data.completed ? "bg-blue-600" : "bg-gray-300"
+                      }`}
+                    >
+                      {data.completed ? "O" : "X"}
+                    </span>
+                    <span> {data.id}.</span>
+                    <span> {data.title} </span>
                   </p>
-                  <p>{post.body}</p>
                 </li>
               );
             })
