@@ -10,7 +10,7 @@ const api = axios.create({
 // 요청 인터셉터
 api.interceptors.request.use(
   async (config) => {
-    console.log("요청 보내기 전");
+    console.log(`요청 보내기 전: ${process.env.REACT_APP_API}`);
     return config;
   },
   async (error) => {

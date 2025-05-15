@@ -1,4 +1,3 @@
-import axios from "axios";
 import "./App.css";
 import { useCounterStore, useMultiflyStore, useThemeStore } from "./store";
 import { useEffect, useState } from "react";
