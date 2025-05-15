@@ -41,7 +41,7 @@ function App() {
           {posts.length > 0 ? (
             posts.map((data: any) => {
               return (
-                <li className="mb-2">
+                <li className="mb-2" key={data.id}>
                   <p className="mb-0.5">
                     <span
                       className={`inline-block w-[24px] text-center rounded text-white ${
