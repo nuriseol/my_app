@@ -30,26 +30,28 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <header>Post List</header>
-        <div>
+      <section>
+        <h2>Post List</h2>
+        <ul className="text-left">
           {posts.length > 0 ? (
             posts.map((post: any) => {
               return (
-                <div className="content">
-                  <div className="raw">
-                    <span className="postId">No. {post.id}</span>
-                    <span className="postTitle">- {post.title}</span>
-                  </div>
-                  <p className="postBody">{post.body}</p>
-                </div>
+                <li className="mb-3">
+                  <p className="mb-0.5">
+                    <span className="font-bold">No. {post.id} </span>
+                    <span>{post.title}</span>
+                  </p>
+                  <p>{post.body}</p>
+                </li>
               );
             })
           ) : (
             <h2>Loading...</h2>
           )}
-        </div>
-      </div>
+        </ul>
+      </section>
+
+      <hr style={{ margin: "20px 0" }} />
 
       {/* 카운터 섹션 */}
       <section>
