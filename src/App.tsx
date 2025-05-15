@@ -66,19 +66,21 @@ function App() {
       {/* 카운터 섹션 */}
       <section>
         <h2 className={h2BaseClasses}>Counter Store</h2>
-        <p>{count}</p>
-        <button
-          onClick={decrement}
-          className={`${buttonBaseClasses} mr-2 bg-gray-200`}
-        >
-          -
-        </button>
-        <button
-          onClick={increment}
-          className={`${buttonBaseClasses} bg-gray-200`}
-        >
-          +
-        </button>
+        <div className="flex gap-2 justify-center">
+          <button
+            onClick={decrement}
+            className={`${buttonBaseClasses} bg-gray-200`}
+          >
+            -
+          </button>
+          <p>{count}</p>
+          <button
+            onClick={increment}
+            className={`${buttonBaseClasses} bg-gray-200`}
+          >
+            +
+          </button>
+        </div>
       </section>
 
       <hr style={{ margin: "20px 0" }} />
@@ -86,34 +88,36 @@ function App() {
       {/* 곱셈기 섹션 */}
       <section>
         <h2 className={h2BaseClasses}>Multifly Store</h2>
-        <p>Current Value: {value}</p>
-        <button
-          onClick={() => multifly(2)}
-          className={`${buttonBaseClasses} mr-2 bg-red-100`}
-        >
-          Multiply by 2
-        </button>
-        <button
-          onClick={() => multifly(3)}
-          className={`${buttonBaseClasses} mr-2 bg-orange-100`}
-        >
-          Multiply by 3
-        </button>
-        <button
-          onClick={() => multifly(5)}
-          className={`${buttonBaseClasses} mr-2 bg-yellow-100`}
-        >
-          Multiply by 5
-        </button>
-        {/* 초기화 버튼 (선택 사항) */}
-        <button
-          className={`${buttonBaseClasses} mr-2 bg-green-100`}
-          onClick={
-            () => useMultiflyStore.setState({ value: 1 }) // 또는 초기값으로 설정
-          }
-        >
-          Reset Value to 1
-        </button>
+        <p className="mb-2">Current Value: {value}</p>
+        <div className="flex gap-2 justify-center">
+          <button
+            onClick={() => multifly(2)}
+            className={`${buttonBaseClasses} bg-red-100`}
+          >
+            x2
+          </button>
+          <button
+            onClick={() => multifly(3)}
+            className={`${buttonBaseClasses} bg-orange-100`}
+          >
+            x3
+          </button>
+          <button
+            onClick={() => multifly(5)}
+            className={`${buttonBaseClasses} bg-yellow-100`}
+          >
+            x5
+          </button>
+          {/* 초기화 버튼 (선택 사항) */}
+          <button
+            className={`${buttonBaseClasses} bg-gray-200`}
+            onClick={
+              () => useMultiflyStore.setState({ value: 1 }) // 또는 초기값으로 설정
+            }
+          >
+            RESET
+          </button>
+        </div>
       </section>
 
       <hr style={{ margin: "20px 0" }} />
@@ -121,16 +125,19 @@ function App() {
       {/* 테마 설정 섹션 */}
       <section>
         <h2 className={h2BaseClasses}>Theme Settings (Persisted)</h2>
-        <p>Current Mode: {mode}</p>
-        <button
-          onClick={toggleMode}
-          className={`${buttonBaseClasses} bg-gray-200`}
-        >
-          Toggle Theme (Light/Dark)
-        </button>
-        <p>
-          <em>페이지를 새로고침해도 테마 설정이 유지됩니다.</em>
-        </p>
+        {mode === "light" ? (
+          <button
+            onClick={toggleMode}
+            className={`${buttonBaseClasses} bg-gray-200`}
+          >
+            dark
+          </button>
+        ) : (
+          <button onClick={toggleMode} className={`${buttonBaseClasses}`}>
+            light
+          </button>
+        )}
+        <p className="mt-2">페이지를 새로고침해도 테마 설정이 유지됩니다.</p>
       </section>
     </div>
   );
