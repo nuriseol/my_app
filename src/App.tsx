@@ -14,10 +14,10 @@ function App() {
   const [posts, setPosts] = useState([]);
 
   // 공통 버튼 스타일
-  const buttonBaseClasses = "px-2 rounded";
+  const buttonBaseClasses = "px-2 rounded font-medium";
 
   // 공통 제목 스타일
-  const h2BaseClasses = "font-bold mb-2";
+  const h2BaseClasses = "font-semibold mb-2";
 
   useEffect(() => {
     const getData = async () => {

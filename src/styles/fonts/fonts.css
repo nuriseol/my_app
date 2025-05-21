@@ -1,0 +1,47 @@
+// Tailwind: font-thin
+@font-face {
+  font-family: "TheJamsil";
+  font-weight: 100;
+  font-style: normal;
+  src: url("./TheJamsil-1-Thin.woff") format("woff");
+}
+
+// Tailwind: font-extralight
+@font-face {
+  font-family: "TheJamsil";
+  font-weight: 200;
+  font-style: normal;
+  src: url("./TheJamsil-2-Light.woff") format("woff");
+}
+
+// Tailwind: font-light
+@font-face {
+  font-family: "TheJamsil";
+  font-weight: 300;
+  font-style: normal;
+  src: url("./TheJamsil-3-Regular.woff") format("woff");
+}
+
+// Tailwind: font-normal
+@font-face {
+  font-family: "TheJamsil";
+  font-weight: 400;
+  font-style: normal;
+  src: url("./TheJamsil-4-Medium.woff") format("woff");
+}
+
+// Tailwind: font-medium
+@font-face {
+  font-family: "TheJamsil";
+  font-weight: 500;
+  font-style: normal;
+  src: url("./TheJamsil-5-Bold.woff") format("woff");
+}
+
+// Tailwind: font-semibold
+@font-face {
+  font-family: "TheJamsil";
+  font-weight: 600;
+  font-style: normal;
+  src: url("./TheJamsil-6-ExtraBold.woff") format("woff");
+}
