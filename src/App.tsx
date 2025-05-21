@@ -1,7 +1,7 @@
-import "./App.css";
-import { useCounterStore, useMultiflyStore, useThemeStore } from "./store";
+import api from "utils/api";
+import "App.css";
 import { useEffect, useState } from "react";
-import api from "./utils/api";
+import { useCounterStore, useMultiflyStore, useThemeStore } from "store";
 
 function App() {
   const { count, increment, decrement } = useCounterStore();
