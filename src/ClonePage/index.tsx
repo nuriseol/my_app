@@ -103,13 +103,13 @@ export default function ClonePage() {
           <h2>일곱 번째 페이지</h2>
         </section>
       </div>
-      <div className="fixed top-1/2 right-8 -translate-y-1/2 flex flex-col gap-3 z-50">
+      <div className="fixed bottom-4 left-5 flex flex-col gap-2 z-50">
         {[0, 1, 2, 3, 4, 5, 6].map((idx) => (
           <div
             key={idx}
             className={
-              `w-3 h-3 rounded-full transition-colors duration-200 ` +
-              (current === idx ? "bg-gray-900" : "bg-gray-300")
+              `w-1 h-1 rounded-full transition-colors duration-200 ` +
+              (current === idx ? "bg-white outline" : "border")
             }
           />
         ))}
