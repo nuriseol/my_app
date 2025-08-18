@@ -1,0 +1,39 @@
+.swiper-pagination {
+  /* 위치를 왼쪽 하단으로 고정 */
+  bottom: 7px !important;
+  left: 20px !important;
+
+  /* 
+    direction="vertical" 일 때 Swiper가 적용하는 기본 위치값(top, right, transform)을
+    초기화해야 스타일이 제대로 적용됩니다.
+  */
+  top: auto !important;
+  right: auto !important;
+  width: auto !important; /* 컨텐츠 크기에 맞게 너비 조정 */
+  transform: none !important; /* transform 효과 제거 */
+
+  /* Swiper가 세로(column)로 설정한 것을 가로(row)로 변경 */
+  flex-direction: row !important;
+}
+
+/* 페이지네이션 각 항목(동그라미) 스타일 */
+.swiper-pagination-bullet {
+  width: 4px;
+  height: 4px;
+  opacity: 1;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #727171;
+  transition: all 0.3s ease;
+  margin: 8px 0 !important;
+}
+
+/* 활성화된 페이지네이션 항목 스타일 */
+.swiper-pagination-bullet-active {
+  /* 배경을 투명하게 유지하여 두 개의 선이 모두 보이도록 합니다. */
+  background-color: #727171;
+  /* outline을 사용해 바깥쪽에 두 번째 테두리를 추가합니다. */
+  outline: 1px solid #727171;
+  /* outline-offset으로 테두리 간의 간격을 만듭니다. */
+  outline-offset: 3px;
+}
