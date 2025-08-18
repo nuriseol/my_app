@@ -37,3 +37,13 @@
   /* outline-offset으로 테두리 간의 간격을 만듭니다. */
   outline-offset: 3px;
 }
+
+/* 흰색 테마 페이지네이션 스타일 */
+.swiper-pagination-white .swiper-pagination-bullet {
+  border-color: #ffffff;
+}
+
+.swiper-pagination-white .swiper-pagination-bullet-active {
+  background-color: #ffffff;
+  outline-color: #ffffff;
+}

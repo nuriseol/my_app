@@ -1,10 +1,24 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css"; // 커스텀 CSS 파일을 import 합니다.
 import { Pagination, Mousewheel, Keyboard } from "swiper/modules";
 
 export default function ClonePage() {
+  // 슬라이드 변경 시 페이지네이션 색상을 변경하는 함수
+  const handleSlideChange = (swiper: SwiperType) => {
+    // 첫 번째(index 0)와 여섯 번째(index 5) 슬라이드인지 확인
+    const isWhiteTheme = swiper.realIndex === 0 || swiper.realIndex === 5;
+    if (swiper.el) {
+      if (isWhiteTheme) {
+        swiper.el.classList.add("swiper-pagination-white");
+      } else {
+        swiper.el.classList.remove("swiper-pagination-white");
+      }
+    }
+  };
+
   return (
     <Swiper
       direction="vertical"
@@ -16,6 +30,8 @@ export default function ClonePage() {
       modules={[Pagination, Mousewheel, Keyboard]} // 필요한 모듈 설치
       className="h-screen"
       style={{ height: "100vh" }}
+      onSlideChange={handleSlideChange} // 슬라이드가 변경될 때마다 함수 호출
+      onInit={handleSlideChange} // Swiper 초기화 시 함수 호출 (첫 페이지 적용)
     >
       <SwiperSlide>
         <div className="flex flex-col items-center justify-center h-screen bg-yellow-400 text-white text-4xl font-bold">
