@@ -34,8 +34,20 @@ export default function ClonePage() {
       onInit={handleSlideChange} // Swiper 초기화 시 함수 호출 (첫 페이지 적용)
     >
       <SwiperSlide>
-        <div className="flex flex-col items-center justify-center h-screen bg-yellow-400 text-white text-4xl font-bold">
-          첫 번째 페이지
+        {/* 전체 슬라이드를 감싸는 flex 컨테이너 */}
+        <div className="flex h-screen w-full">
+          {/* 왼쪽 섹션: 애니메이션 적용 대상 */}
+          <div className="left-panel flex w-1/3 items-center justify-center bg-[#0d666c]">
+            <h1 className="text-4xl font-bold text-white">왼쪽</h1>
+          </div>
+          {/* 오른쪽 섹션 */}
+          <div className="w-full overflow-hidden">
+            <img
+              src="/images/firstPage.webp"
+              alt="메인 페이지 이미지"
+              className="right-panel-image h-full w-full object-cover"
+            />
+          </div>
         </div>
       </SwiperSlide>
       <SwiperSlide>

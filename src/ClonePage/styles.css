@@ -47,3 +47,46 @@
   background-color: #ffffff;
   outline-color: #ffffff;
 }
+
+/* --- 첫 번째 페이지 애니메이션 --- */
+
+/* 애니메이션 시작 전 초기 상태 설정 (깜빡임 방지) */
+.left-panel,
+.right-panel-image {
+  opacity: 0;
+}
+
+/* 
+  .swiper-slide-active 클래스는 Swiper가 활성 슬라이드에 자동으로 추가해줍니다.
+  이 클래스를 사용하여 활성 슬라이드 내부의 .left-panel에만 애니메이션을 적용합니다.
+*/
+.swiper-slide-active .left-panel {
+  animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 활성 슬라이드의 오른쪽 이미지에 애니메이션 적용 */
+.swiper-slide-active .right-panel-image {
+  animation: zoomIn 0.8s ease-out forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
